@@ -291,7 +291,7 @@ var quiz = {
 	'   <option value="noInfo">You do not learn if it was friendly or dangerous, and do not alter your bonus.</option>' +
 	'   <option value="info">You learn if it was friendly or dangerous, but do not alter your bonus.</option>' +
 	'   <option value="infoPlusBonus">You learn if it was friendly or dangerous and alter your bonus.</option>' +
-  '</select>'
+  '</select> <br>'
 ,
   preamble: 'Comprehension Check',
   button_label: 'Submit',
@@ -512,15 +512,46 @@ var quiz = {
 // posttask questionnaire
 
 var endquestions = {
-  type: 'external-html',
-  url: './pages/endingquestions.html',
-  cont_btn: 'next',
+  type: 'survey-html-form',
+  preamble: 'Finished harvesting honey!',
+  html: '<p> We have a couple of short questions before you complete the experiment:</p>'+
+  '<p>About what percentage of beehives do you think contained dangerous bees? (enter a value between 0 and 100.)</p>' +
+  '<input type="number" id="dangerpercent" name="dangerpercent">'+
+  '<p>Which features do you think were useful for deciding whether a bee variety was friendly or dangerous?</p>' +
+  '<input type="checkbox" name="dimensions" value="legs">Two or six legs<br>' +
+  '<input type="checkbox"  name="dimensions" value="body">Stripes or spots on body<br>' +
+  '<input type="checkbox"  name="dimensions" value="wings">Single or double wings<br>' +
+  '<input type="checkbox" name="dimensions" value="antennae">Antennae or no antennae<br>' +
+  '<p>Did you use pen and paper or another external aid during the task? (Please be honest, your payment will not be affected!) </p>' +
+  '        <select id="penpaper" name="penpaper" class="form-control">' +
+  '        <option value="noresp" SELECTED></option> <br>' +
+  '        <option value="no">no</option> <br>' +
+  '        <option value="yes">yes</option> <br>' +
+  '      </select> <br>',
+  button_label: 'Continue',
 };
 
 var questionnaire = {
-  type: 'external-html',
-  url: './pages/postquestionnaire.html',
-  cont_btn: 'continue',
+  type: 'survey-html-form',
+  preamble: 'Complete',
+  html:'<p>You are almost done!</p>' +
+  '<p>Congratulations, you are finished!  You will be eligible for payment once you answer the following questions.</p>' +
+  '<p>On a scale of 1-10 (where 10 is the most engaged), please rate how <b>ENGAGING</b> you found this task:</p>' +
+  '      <select id="engagement" name="engagement">' +
+  '             <option value="noresp" SELECTED></option><br>' +
+  '             <option value="10">10 - Very engaging</option><br>' +
+  '             <option value="9">9</option><br>' +
+  '             <option value="8">8</option><br>' +
+  '             <option value="7">7</option><br>' +
+  '             <option value="6">6</option><br>' +
+  '             <option value="5">5 - Moderately</option><br>' +
+  '             <option value="4">4</option><br>' +
+  '             <option value="3">3</option><br>' +
+  '             <option value="2">2</option><br>' +
+  '             <option value="1">1</option><br>' +
+  '             <option value="0">0 - Not engaged</option><br>' +
+  '      </select>',
+  button_label: 'Continue',
 };
 
 timeline.push(endquestions);
