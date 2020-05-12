@@ -433,6 +433,17 @@ var startExp = {
 
 timeline.push(startExp)
 
+// success trial if comprehension check responses correct
+var successtrial = {
+  type: 'html-button-response',
+  timing_post_trial: 0,
+  choices: ['Click here to begin the experiment'],
+  on_trial_start: function() { setTimeout(function() {setDisplay("jspsych-btn","")}, 500)},
+  is_html: true,
+  stimulus: 'Well done! You answered all the questions correctly.'
+};
+timeline.push(successtrial); 
+
 /*var quiz = {
   type:'survey-html-form',
   html: '<pBefore beginning the experiment, you must answer a few simple questions to ensure you have read the instructions. If you do not answer all questions correctly, you will be returned to the start of the instructions and have a chance to retake this quiz.</p>' +
