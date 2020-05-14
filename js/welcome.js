@@ -173,7 +173,7 @@ welcome.section.demographics =
 '<option>Male</option><option>Female</option><option>Non-binary</option><option>Other</option></select>' +
 '		<br><br>' +
 '			<!-- Age -->' +
-'           <label for="age"><b>*Age: &nbsp;</b></label><input id="age" name="age" /><br /><br />' +
+'           <label for="age"><b>*Age: &nbsp;</b></label><input type = "number" min="18" max="100" onKeyUp="if(this.value>100){this.value=\'100\';}else if(this.value<18){this.value=\'18\';}" id="age" name="age" /><br /><br />' +
 '			<!-- Country -->' +
 '			<label for="country"><b>*Country you live in: &nbsp;</b></label>  ' +
 '           <select name="country" id="country" class="drop-menu">' +
